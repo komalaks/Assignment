@@ -1,0 +1,175 @@
+<form [formGroup]="signupForm" novalidate>
+  <div class="cont">
+    <div class="row">
+      <div class="col-md-4">
+        <label>User Name</label>
+        <input type="text" formControlName="username" />
+        <span
+          class="text-danger"
+          *ngIf="
+            (signupForm.get('username').touched || submitted) &&
+            signupForm.get('username').errors?.required
+          "
+        >
+          User name is required
+        </span>
+      </div>
+    </div>
+    <br /><br />
+    <div class="row">
+      <div class="col-md-4">
+        <label>Name</label>
+        <input type="text" formControlName="name" />
+        <span
+          class="text-danger"
+          *ngIf="
+            (signupForm.get('name').touched || submitted) &&
+            signupForm.get('name').errors?.required
+          "
+        >
+          Name is required
+        </span>
+      </div>
+    </div>
+    <br /><br />
+    <div class="row">
+      <div class="col-md-4">
+        <label>Email</label>
+        <input type="email" formControlName="email" />
+        <span
+          class="text-danger"
+          *ngIf="
+            (signupForm.get('email').touched || submitted) &&
+            signupForm.get('email').errors?.required
+          "
+        >
+          Email is required
+        </span>
+
+        <span
+          class="text-danger"
+          *ngIf="
+            signupForm.get('email').invalid && signupForm.get('email').dirty
+          "
+        >
+          Enter a valid email address</span
+        >
+      </div>
+    </div>
+    <br /><br />
+    <div class="row">
+      <div class="col-md-4">
+        <label>Password</label>
+        <input type="password" formControlName="password" />
+        <span
+          class="text-danger"
+          *ngIf="
+            (signupForm.get('password').touched || submitted) &&
+            signupForm.get('password').errors?.required
+          "
+        >
+          Password is required
+        </span>
+        <!-- <span
+          class="text-danger"
+          *ngIf="
+            signupForm.get('password').invalid &&
+            signupForm.get('password').dirty
+          "
+        >
+          Password should have minimum 8 characters, at least 1 uppercase
+          letter, 1 lowercase letter and 1 number
+        </span> -->
+      </div>
+    </div>
+    <br /><br />
+    <div class="row">
+      <div class="col-md-4">
+        <label>Confirm Password</label>
+        <input type="password" formControlName="cpassword" />
+        <span
+          class="text-danger"
+          *ngIf="
+            (signupForm.get('cpassword').touched || submitted) &&
+            signupForm.get('cpassword').errors?.required
+          "
+        >
+          Confirm Password is required
+        </span>
+        <!-- <span
+          class="text-danger"
+          *ngIf="
+            signupForm.get('cpassword').touched &&
+            signupForm.get('cpassword').errors?.passwordMismatch
+          "
+        >
+          Passwords doesnot match
+        </span> -->
+      </div>
+    </div>
+    <br /><br />
+    <div class="row">
+      <div class="col-md-4">
+        <label>Mobile Number</label>
+        <input type="text" formControlName="mobile" />
+        <span
+          class="text-danger"
+          *ngIf="
+            (signupForm.get('mobile').touched || submitted) &&
+            signupForm.get('mobile').errors?.required
+          "
+        >
+          Mobile is required
+        </span>
+        <!-- <span
+          class="text-danger"
+          *ngIf="
+            signupForm.get('mobile').invalid && signupForm.get('mobile').dirty
+          "
+        >
+          Enter a valid mobile</span
+        > -->
+      </div>
+    </div>
+    <br /><br />
+    <div class="row">
+      <div class="col-md-4">
+        <label>Address</label>
+        <input type="text" formControlName="address" />
+        <span
+          class="text-danger"
+          *ngIf="
+            (signupForm.get('address').touched || submitted) &&
+            signupForm.get('address').errors?.required
+          "
+        >
+          Address is required
+        </span>
+        <!-- <span
+          class="text-danger"
+          *ngIf="
+            signupForm.get('address').invalid && signupForm.get('address').dirty
+          "
+        >
+          Address max length 30</span
+        > -->
+      </div>
+    </div>
+    <br /><br /><span *ngIf="falseMisMatch" class="text-danger">{{
+      misMatch
+    }}</span
+    ><br />
+    <div class="row">
+      <div class="col-md-2">
+        <button class="primary" (click)="submitForm()">Submit</button>
+        <a
+          style="color: blue; padding-left: 15px; cursor: pointer"
+          (click)="login()"
+          >Login</a
+        >
+      </div>
+    </div>
+    <br />
+    <span class="invalid-error-msg">{{ errMsg }}</span>
+  </div>
+</form>
